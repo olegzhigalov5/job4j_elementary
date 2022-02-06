@@ -1,8 +1,12 @@
 package ru.job4j.condition;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 public class DivideBySix {
-    @SuppressWarnings("checkstyle:OperatorWrap")
-    public static String checkNumber(int number) {
+
+      @Contract(pure = true)
+      public static @NotNull String checkNumber(int number) {
         String rsl = "";
        if (number % 3 == 0 && number % 2 == 0) {
             rsl = "Исходное число делится на 6.";
@@ -13,6 +17,7 @@ public class DivideBySix {
                             "Исходное число делится на 3, но не является четным." :
                             "Исходное число не делится на 3 и не является четным." ;
                     }
+
        return rsl;
     }
 }
