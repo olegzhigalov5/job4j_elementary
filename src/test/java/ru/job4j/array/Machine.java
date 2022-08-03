@@ -7,14 +7,13 @@ public class Machine {
         int[] coins = {10, 5, 2, 1};
         int[] rsl = new int[100];
         int size = 0;
-
-            for (int i = 0; i < coins.length; i++) {
-                while ((money - price) >= coins[i]) {
-                    money = money - coins[i];
-                    rsl[size] = coins[i];
-                    size = size + 1;
-                }
+        int change = money - price;
+        for (int coin : coins) {
+            while (change >= coin) {
+                change -= coin;
+                rsl[size++] = coin;
             }
+        }
         return Arrays.copyOf(rsl, size);
     }
 }
